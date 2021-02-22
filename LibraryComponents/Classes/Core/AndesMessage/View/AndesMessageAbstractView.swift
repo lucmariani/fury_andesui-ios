@@ -20,6 +20,8 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
     @IBOutlet weak var titleToDismissConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleToSafeAreaConstraint: NSLayoutConstraint!
 
+    @IBOutlet weak var bulletsTextView: UITextView!
+
     var config: AndesMessageViewConfig
     init(withConfig config: AndesMessageViewConfig) {
         self.config = config
@@ -75,6 +77,13 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
         self.bodyTextView.attributedText = getBodyText(style: config.bodyStyle)
         self.bodyTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: config.bodyLinkTextColor]
         self.bodyTextView.delegate = self
+//        
+//        //
+//        self.bulletsTextView.setAndesStyle(style: config.bodyStyle)
+//        self.bulletsTextView.attributedText = getBulletsText(style: config.bodyStyle)
+//        self.bulletsTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: config.bodyLinkTextColor]
+//        self.bulletsTextView.delegate = self
+//        //
 
         self.iconView.tintColor = config.iconColor
         if let icon = config.icon {
@@ -133,6 +142,10 @@ class AndesMessageAbstractView: UIView, AndesMessageView, UITextViewDelegate {
         }
 
         return attributedString
+    }
+
+    func getBulletsText(style: AndesFontStyle) -> [NSAttributedString] {
+        return [NSAttributedString(string: "")]
     }
 
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {

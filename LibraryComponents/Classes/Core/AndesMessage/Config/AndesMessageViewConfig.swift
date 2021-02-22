@@ -17,6 +17,10 @@ internal struct AndesMessageViewConfig {
     var bodyText: String?
     var maxLines: UInt16 = 0
 
+//    var bulletStyle: AndesBulletStyle = getBulletStyle()
+//    var bullets: [AndesBullet]
+//    var bulletBodyLinks: [AndesBodyLink]?
+
     var icon: String?
     var iconColor: UIColor = AndesStyleSheetManager.styleSheet.textColorWhite
     var iconBackgroundColor: UIColor = AndesStyleSheetManager.styleSheet.accentColor600
@@ -64,4 +68,8 @@ internal struct AndesMessageViewConfig {
     private static func getBodyStyle(_ color: UIColor) -> AndesFontStyle {
         return AndesFontStyle(textColor: color, font: AndesStyleSheetManager.styleSheet.regularSystemFont(size: 14), sketchLineHeight: 18)
     }
+
+//    private static func getBulletStyle() -> AndesBulletStyle {
+//        return AndesBulletStyle()
+//    }
 }
